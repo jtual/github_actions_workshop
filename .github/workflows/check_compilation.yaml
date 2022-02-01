@@ -1,9 +1,12 @@
-on: push
+name: Check compilation
+on:
+  push:
+    branches:
+      master
 jobs:
-  compilation
-  runs-on: ubuntu-20.04
-  container:
-    image: epitechcontent/epitest-docker:devel
-
-    - name: Checkout
-  uses: actions/checkout@v2.4.0
+  compilation:
+    runs-on: ubuntu-20.04
+    container: epitechcontent/epitest-docker:devel
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
